@@ -20,7 +20,7 @@ export PATH=$PATH:$HOME/bin
 ```
 4. Download the `clita` binary for OSX and rename it.  
 ```sh
-$ wget https://github.com/clita/clita/releases/download/v0.1.0/clita-darwin-amd64  
+$ wget https://github.com/clita/clita/releases/download/v0.1.0-alpha/clita-darwin-amd64  
 $ mv clita-darwin-amd64 clita
 ```
 5. Finally, make the binary an executable file and you are good to go!
