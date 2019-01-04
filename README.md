@@ -25,5 +25,5 @@ $ mv clita-darwin-amd64 clita
 ```
 5. Finally, make the binary an executable file and you are good to go!
 ```
-$ chmod +x dbxcli
+$ chmod +x clita
 ```
