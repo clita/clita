@@ -56,14 +56,14 @@ func display(firstString string, secondString string, splitBy string) {
 	defer ui.Close()
 
 	leftString, rightString := diff.FindColouredChanges(firstString, secondString, splitBy)
-	leftStringWindow := ui.NewPar(leftString)
+	leftStringWindow := ui.NewParagraph(leftString)
 	leftStringWindow.Height = ui.TermHeight()
 	leftStringWindow.Y = 0
 	leftStringWindow.WrapLength=(6*ui.TermWidth())/14
 	leftStringWindow.BorderLabel = "First Argument"
 	leftStringWindow.BorderFg = ui.ColorYellow
 
-	rightStringWindow := ui.NewPar(rightString)
+	rightStringWindow := ui.NewParagraph(rightString)
 	rightStringWindow.Height = ui.TermHeight()
 	rightStringWindow.Y = 0
 	rightStringWindow.BorderLabel = "Second Argument"
@@ -80,26 +80,23 @@ func display(firstString string, secondString string, splitBy string) {
 
 	ui.Render(ui.Body)
 
-	ui.Handle("q", func(ui.Event) {
-		ui.StopLoop()
-	})
-
-	ui.Handle("/sys/kbd/", func(ui.Event) {
-		ui.StopLoop()
-	})
-
-	ui.Handle("<Resize>", func(e ui.Event) {
-		payload := e.Payload.(ui.Resize)
-		ui.Body.Width = payload.Width
-		leftStringWindow.Height = ui.TermHeight()
-		rightStringWindow.Height = ui.TermHeight()
-		leftStringWindow.WrapLength=(5*ui.TermWidth())/10
-		ui.Body.Align()
-		ui.Clear()
-		ui.Render(ui.Body)
-	})
-
-	ui.Loop()
+	uiEvents := ui.PollEvents()
+	for {
+		e := <-uiEvents
+		switch e.ID {
+			case "q", "<C-c>":
+				return
+			case "<Resize>":
+				payload := e.Payload.(ui.Resize)
+				ui.Body.Width = payload.Width
+				leftStringWindow.Height = ui.TermHeight()
+				rightStringWindow.Height = ui.TermHeight()
+				leftStringWindow.WrapLength=(6*ui.TermWidth())/14
+				ui.Body.Align()
+				ui.Clear()
+				ui.Render(ui.Body)
+		}
+	}
 }
 
 // diffCmd represents the diff command
