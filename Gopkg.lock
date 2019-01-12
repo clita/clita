@@ -71,6 +71,7 @@
   input-imports = [
     "github.com/clita/diff",
     "github.com/gizak/termui",
+    "github.com/mattn/go-runewidth",
     "github.com/spf13/cobra",
   ]
   solver-name = "gps-cdcl"
