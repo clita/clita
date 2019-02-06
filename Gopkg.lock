@@ -3,11 +3,19 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:ac91f8482be124d0bd8c1b03e55a14441b6de35d28fc5f998c6761c4be79233c"
+  digest = "1:af3cc5433959d83ccf9da4e6fdef888b48685d7f717b12bf3f750fae2b6c6d7c"
   name = "github.com/clita/diff"
   packages = ["."]
   pruneopts = "UT"
-  revision = "c8d35edc225b89214785506d64b754a349805fac"
+  revision = "547eb2b68f7221604f6c0a5f8a219f02e9a1a956"
+
+[[projects]]
+  branch = "master"
+  digest = "1:ba906aaa9c51537b08cdeab2c3a889f6afcc91ec20af190b0e8505814ec3e3bd"
+  name = "github.com/clita/spellcheck"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "1bb99f1cb9e42a653179c35c1d7db89508960ed3"
 
 [[projects]]
   digest = "1:870d441fe217b8e689d7949fef6e43efbc787e50f200cb1e70dbca9204a1d6be"
@@ -38,6 +46,7 @@
   analyzer-version = 1
   input-imports = [
     "github.com/clita/diff",
+    "github.com/clita/spellcheck",
     "github.com/spf13/cobra",
   ]
   solver-name = "gps-cdcl"

@@ -71,9 +71,9 @@ func display(firstString string, secondString string, splitBy string) {
 var diffCmd = &cobra.Command{
 	Use:   "diff",
 	Args:  cobra.ExactArgs(2),
-	Short: "Tool for comparing files passed as arguments",
+	Short: "Tool for comparing files or strings passed as arguments",
 	Long: `A tool to generate git-diff like coloured output showing comparison between files
-	passed as arguments.`,
+	or strings passed as arguments.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		initCheck()

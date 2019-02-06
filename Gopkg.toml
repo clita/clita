@@ -30,6 +30,10 @@
   name = "github.com/clita/diff"
 
 [[constraint]]
+  branch = "master"
+  name = "github.com/clita/spellcheck"
+
+[[constraint]]
   name = "github.com/spf13/cobra"
   version = "0.0.3"
 

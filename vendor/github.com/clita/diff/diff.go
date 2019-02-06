@@ -7,6 +7,7 @@ import (
 )
 
 const INF = 10000000000
+var memo[][] string
 
 // Function that returns coloured strings by finding deletions im firstString and additions in secondString
 // If splitBy is "words", one word is considered as one unit
@@ -22,13 +23,13 @@ func FindColouredChanges(firstString string, secondString string, splitBy string
 		input1 := splitRegex.Split(firstString, INF)
 		input2 := splitRegex.Split(secondString, INF)
 
-		memo := make([][]string, len(input1))
+		memo = make([][]string, len(input1))
 
 		for i := 0; i < len(input1); i++ {
 			memo[i] = make([]string, len(input2))
 		}
 
-		lcsWordString := lcsByWords(input1, input2, 0, 0, memo)
+		lcsWordString := lcsByWords(input1[0:], input2[0:], 0, 0)
 		lcsWordString = trim(lcsWordString, ' ')
 		// fmt.Println(lcsWordString)
 
@@ -40,13 +41,13 @@ func FindColouredChanges(firstString string, secondString string, splitBy string
 		input1 := strings.Split(firstString, "\n")
 		input2 := strings.Split(secondString, "\n")
 
-		memo := make([][]string, len(input1))
+		memo = make([][]string, len(input1))
 
 		for i := 0; i < len(input1); i++ {
 			memo[i] = make([]string, len(input2))
 		}
 
-		lcsLineString := lcsByLines(input1, input2, 0, 0, memo)
+		lcsLineString := lcsByLines(input1[0:], input2[0:], 0, 0)
 		lcsLineString = trim(lcsLineString, '\n')
 		// fmt.Println(lcsLineString)
 
@@ -62,7 +63,7 @@ func FindColouredChanges(firstString string, secondString string, splitBy string
 
 // Function that returns lcs string formed by concatenating words in lcs word array with spaces
 // when one word is considered as one unit
-func lcsByWords(s1 []string, s2 []string, indexS1 int, indexS2 int, memo [][]string) string {
+func lcsByWords(s1 []string, s2 []string, indexS1 int, indexS2 int) string {
 	lenghtS1, lenghtS2 := len(s1), len(s2)
 
 	if indexS1 == lenghtS1 || indexS2 == lenghtS2 {
@@ -78,13 +79,13 @@ func lcsByWords(s1 []string, s2 []string, indexS1 int, indexS2 int, memo [][]str
 			memo[indexS1][indexS2] = string(s1[indexS1])
 			return memo[indexS1][indexS2]
 		} else {
-			memo[indexS1][indexS2] = string(s1[indexS1]) + " " + lcsByWords(s1, s2, indexS1+1, indexS2+1, memo)
+			memo[indexS1][indexS2] = string(s1[indexS1]) + " " + lcsByWords(s1, s2, indexS1+1, indexS2+1)
 			return memo[indexS1][indexS2]
 		}
 	}
 
-	result1 := lcsByWords(s1, s2, indexS1+1, indexS2, memo)
-	result2 := lcsByWords(s1, s2, indexS1, indexS2+1, memo)
+	result1 := lcsByWords(s1[0:], s2[0:], indexS1+1, indexS2)
+	result2 := lcsByWords(s1[0:], s2[0:], indexS1, indexS2+1)
 
 	if len(result1) >= len(result2) {
 		memo[indexS1][indexS2] = result1
@@ -96,7 +97,7 @@ func lcsByWords(s1 []string, s2 []string, indexS1 int, indexS2 int, memo [][]str
 }
 
 // Function to calculate lcs string when each line of string is considered as separate unit
-func lcsByLines(s1 []string, s2 []string, indexS1 int, indexS2 int, memo [][]string) string {
+func lcsByLines(s1 []string, s2 []string, indexS1 int, indexS2 int) string {
 
 	lenghtS1, lenghtS2 := len(s1), len(s2)
 
@@ -113,14 +114,14 @@ func lcsByLines(s1 []string, s2 []string, indexS1 int, indexS2 int, memo [][]str
 		if indexS1 == (lenghtS1-1) || indexS2 == (lenghtS2-1) {
 			memo[indexS1][indexS2] = string(s1[indexS1])
 		} else {
-			memo[indexS1][indexS2] = string(s1[indexS1]) + "\n" + lcsByLines(s1, s2, indexS1+1, indexS2+1, memo)
+			memo[indexS1][indexS2] = string(s1[indexS1]) + "\n" + lcsByLines(s1, s2, indexS1+1, indexS2+1)
 		}
 
 		return memo[indexS1][indexS2]
 	}
 
-	result1 := lcsByLines(s1, s2, indexS1+1, indexS2, memo)
-	result2 := lcsByLines(s1, s2, indexS1, indexS2+1, memo)
+	result1 := lcsByLines(s1[0:], s2[0:], indexS1+1, indexS2)
+	result2 := lcsByLines(s1[0:], s2[0:], indexS1, indexS2+1)
 
 	if len(result1) >= len(result2) {
 		memo[indexS1][indexS2] = result1

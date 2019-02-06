@@ -1,5 +1,5 @@
 # diff
-Diff module for clita application.  
+Diff module for clita application. Implemented using Memoized Longest Common Subsequence algorithm.
 
 ### Install:
 ```sh
@@ -10,11 +10,8 @@ Diff module for clita application.
 ```go
 
   // Return strings formatted according to colour codes
-  diff.FindColouredChanges(firstString, secondString, splitBy, stdoutPrint)
+  diff.FindColouredChanges(firstString, secondString, splitBy)
   
   // firstString, secondString - Strings to compare
   // splitBy = "words" compared strings word by word, splitBy = "lines" to compare strings line by line
-  // stdoutPrint boolean to tell which colour codes to use, 
-  //            = true returns strings formatted according to terminal escape colour codes
-  //            = false returns strings formatted according to gizak/termui colour codes
 ```
