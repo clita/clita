@@ -50,7 +50,7 @@ $ chmod +x clita
 ```  
 
 ### Examples: 
-**Diff** -  
+**Diff**   
 this example passes strings arguments using "-s" flag but you can also pass files as arguments.  
 like: `clita diff /path/to/file1 /path/to/file2`
 ```diff
@@ -66,11 +66,18 @@ $ clita diff -s "Hello World" "Hello"
 
 **SpellCheck**  
 ```diff
-$ clita spellcheck --color "Speling Errurs IN somethink. Whutever; unusuel misteakes?"
+$ clita spellcheck --color "Speling Errurs IN somethink. Whutever; unusuel misteakes? Hellothereworld"
 
 # Output: 
-- Speling Errurs IN somethink. Whutever; unusuel misteakes?
-+ Spelling Errors In something. Whatever; unusual mistakes?
-```
+- Speling Errurs IN somethink. Whutever; unusuel misteakes? Hellothereworld
++ Spelling Errors In something. Whatever; unusual mistakes? Hello there world
+```  
 
+**Words Segmentation**  
+```diff
+$ clita spellcheck --segments "thisisatestofsegmentationofaverylongsequenceofwords"
+
+# Output: 
+this is a test of segmentation of a very long sequence of words
+```  
   
