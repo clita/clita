@@ -2,6 +2,22 @@
 
 
 [[projects]]
+  digest = "1:b9c3ee159f298c65f1df7b590ed5c081178ed0b01aab163ab39dce8ecb26b3ab"
+  name = "github.com/alediaferia/prefixmap"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "69f3c214ad437571fec6f71ab13ce723fae62137"
+  version = "v1.0.1"
+
+[[projects]]
+  branch = "master"
+  digest = "1:6566c40e103672e1451ca35613eeae44885a3b1400b2d16fb7fdb3bc3b89aef5"
+  name = "github.com/clita/autocomplete"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "eb7f5f0016c1e694f5ca065b32a73d97855299d5"
+
+[[projects]]
   branch = "master"
   digest = "1:af3cc5433959d83ccf9da4e6fdef888b48685d7f717b12bf3f750fae2b6c6d7c"
   name = "github.com/clita/diff"
@@ -11,11 +27,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:ba906aaa9c51537b08cdeab2c3a889f6afcc91ec20af190b0e8505814ec3e3bd"
+  digest = "1:5be62a2ccb794df38e1e9be63497a3237940193a51f4dde9461fc708db4c241b"
   name = "github.com/clita/spellcheck"
   packages = ["."]
   pruneopts = "UT"
-  revision = "1bb99f1cb9e42a653179c35c1d7db89508960ed3"
+  revision = "e785d7efd03a60ee07b079560c13f1b0134c5d0a"
 
 [[projects]]
   digest = "1:870d441fe217b8e689d7949fef6e43efbc787e50f200cb1e70dbca9204a1d6be"
@@ -41,10 +57,19 @@
   revision = "298182f68c66c05229eb03ac171abe6e309ee79a"
   version = "v1.0.3"
 
+[[projects]]
+  digest = "1:f818723d28d3590d134445a969f9ea9f001c3db2935109ae057f9e73edd7d901"
+  name = "gopkg.in/alediaferia/stackgo.v1"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "aca8d4047c67a168c7ab889ab632c2a2b6ce5431"
+  version = "v1.1.1"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/clita/autocomplete",
     "github.com/clita/diff",
     "github.com/clita/spellcheck",
     "github.com/spf13/cobra",
