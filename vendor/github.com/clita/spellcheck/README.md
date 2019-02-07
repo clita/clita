@@ -2,7 +2,7 @@
 Spell checking module for clita.
 
 ## Usage 
-**Initialisatio**  
+**Initialisation**  
 ```go
   spellcheck.Init()
 ```
