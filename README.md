@@ -80,4 +80,35 @@ $ clita spellcheck --segments "thisisatestofsegmentationofaverylongsequenceofwor
 # Output: 
 this is a test of segmentation of a very long sequence of words
 ```  
+
+**Autocorrect**  
+```
+$ clita autocomplete "hell"
+
+// Output: 
+// Results (maximum 5) for target similarity: 0.30
+// match: hell             frequency: 3177030      similarity: 1.00
+// match: hello all        frequency: 525838       similarity: 0.44
+// match: hello and        frequency: 339673       similarity: 0.44
+// match: hello to         frequency: 256602       similarity: 0.50
+// match: hello from       frequency: 277949       similarity: 0.40
+```  
+
+```
+$ clita autocomplete --threshold 0.2 --maxresults 10 "hell"
+
+// Output:
+// Results (maximum 10) for target similarity: 0.20
+// match: hell             frequency: 3177030      similarity: 1.00
+// match: hello all        frequency: 525838       similarity: 0.44
+// match: hello and        frequency: 339673       similarity: 0.44
+// match: hello to         frequency: 256602       similarity: 0.50
+// match: hello from       frequency: 277949       similarity: 0.40
+// match: hello everyone   frequency: 384383       similarity: 0.29
+// match: hell is          frequency: 178001       similarity: 0.57
+// match: hello there      frequency: 233646       similarity: 0.36
+// match: hell and         frequency: 137950       similarity: 0.50
+// match: say hello        frequency: 154092       similarity: 0.44
+```  
+
   
