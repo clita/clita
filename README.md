@@ -81,7 +81,7 @@ $ clita spellcheck --segments "thisisatestofsegmentationofaverylongsequenceofwor
 this is a test of segmentation of a very long sequence of words
 ```  
 
-**Autocorrect**  
+**Autocomplete**  
 ```
 $ clita autocomplete "hell"
 
