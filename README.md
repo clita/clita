@@ -1,5 +1,5 @@
 # clita
-CLI based Text Assistant for dealing with files easily and smartly.  
+CLI based Text Assistant for easy dealing with text.  
 
 ## Installation
 
