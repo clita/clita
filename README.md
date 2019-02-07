@@ -64,4 +64,13 @@ $ clita diff -s "Hello World" "Hello"
 + Hello 
 ```  
 
+**SpellCheck**  
+```diff
+$ clita spellcheck --color "Speling Errurs IN somethink. Whutever; unusuel misteakes?"
+
+# Output: 
+- Speling Errurs IN somethink. Whutever; unusuel misteakes?
++ Spelling Errors In something. Whatever; unusual mistakes?
+```
+
   
