@@ -27,3 +27,41 @@ $ mv clita-darwin-amd64 clita
 ```
 $ chmod +x clita
 ```
+
+## Usage: 
+```
+  Clita is Command line application which serves as an assistant
+        while writing, reading or editing your files.
+        It has many features which includes autocompletion, autocorrection, comparing files.
+
+  Usage:
+    clita [command]
+
+  Available Commands:
+    autocomplete A brief description of your command
+    diff         Tool for comparing files or strings passed as arguments
+    help         Help about any command
+    spellcheck   Spelling checking module for clita.
+
+  Flags:
+    -h, --help   help for clita
+
+  Use "clita [command] --help" for more information about a command.
+```  
+
+### Examples: 
+**Diff** -  
+this example passes strings arguments using "-s" flag but you can also pass files as arguments.  
+like: `clita diff /path/to/file1 /path/to/file2`
+```diff
+$ clita diff -s "Hello World" "Hello"
+  
+# Output:  
+  First Argument:  
+- Hello World
+
+  Second Argument:  
++ Hello 
+```  
+
+  
